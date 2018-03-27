@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Smart Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="static/css/style.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+<div class="container1">
+<p>
+            <h1>Automation</h1>
+<table>
+        <tr>
+	<th>Hall:</th>
+        <td><button type='button' id='hall_on' class="on"><span id ="hall">On</span></button></td>
+	<td><button type='button' id='hall_off' class="off">Standby</button></td>
+	</tr>
+	<tr>	
+        <th> Lobby:</th>
+        <td><button type='button' id='lobby_on' class="on">On</button></td>
+	<td><button type='button' id='lobby_off' class="off">Standby</button></td>
+        </tr>
+	<tr>
+	<th>Room 1 :</th>
+        <td><button type='button' id='room1_on' class="on">On</button></td>
+        <td><button type='button' id='room1_off' class="off">Standby</button></td>
+	</tr>
+        <tr>
+	<th>Room 2 :</th>
+	<td><button type='button' id='room2_on' class="on">On</button></td>
+	<td><button type='button' id='room2_off' class="off">Standby</button></td>	
+	</tr>
+        <tr>
+	<th>Bathroom : </th>
+	<td><button type='button' id='loo_on' class="on">On</button></td>
+	<td><button type='button' id='loo_off' class="off">Standby</button></td>
+        </tr>
+        <tr>
+	<th>Garage Door:</th>
+        <td><button type='button' id='garage_on' class="on">Open</button></td>
+	<td><button type='button' id='garage_off' class="off">Close</button></td>
+        </tr>
+	<tr>
+	<th>AC :</th>
+        <td><button type='button' id='ac_on' class="on">On</button></td>
+	<td><button type='button' id='ac_off' class="off">Standby</button></td>
+        </tr>
+        <tr>
+	<th>Water Tank:</th>
+	<td><button type='button' id='tank_on' class="on">On</button></td>
+	<td><button type='button' id='tank_off' class="off">Standby</button></td>
+        </tr>
+</table>	
+</p>
+</div>
+        
+        <div class="container2">
+            <p>
+            <h1>Security</h1>
+            <table>
+                <tr>
+		<th>Activate Alarm:</th>
+               <td> <button type='button' id='alertin' class="on">Alert</button></td>
+		</tr>
+                   <tr>
+		<th>Send Alert:</th>
+               <td> <button type='button' id='hall_on' class="on">Alert</button></td>
+		</tr>
+            </table>	
+	  </p>
+        </div>
+        
+        <div class="container3">
+            <p>
+            <h1>Emergency</h1>
+            <table>
+               <tr>
+		<th>Emergency On:</th>
+		<td><button type='button' id='all_on' class="on">Activate</button></td>
+               </tr>
+               <th>Emergency Off:</th>
+		<td><button type='button' id='all_off' class="off">Activate</button></td>
+               </tr>
+               <th>Reset System:</th>
+		<td><button type='button' id='reset' class="on">Initiate</button></td>
+               </tr>
+            </table>	
+	  </p>
+        </div>
+
+	
+
+
+	<script src="{{url_for('static',filename='jQuery/jquery-3.2.1.min.js') }}"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+	
+	<script src="{{url_for('static',filename='js/bootstrap.min.js') }}"></script>
+	<script>$(document).ready(function() {
+		$('#hall_on').click(function() {
+			console.log('Hall On!');
+			$.post('/hall/1');
+			});
+		$('#hall_off').click(function() {
+			console.log('Hall Off!');
+			$.post('/hall/0');
+			});
+		$('#lobby_on').click(function() {
+			console.log('Lobby On!');
+			$.post('/lobby/1');
+			});
+		$('#lobby_off').click(function() {
+			console.log('Lobby Off!');
+			$.post('/lobby/0');
+			});
+		$('#room1_on').click(function() {
+			console.log('Room 1 On!');
+			$.post('/room1/1');
+			});
+		$('#room1_off').click(function() {
+			console.log('Room 1 Off!');
+			$.post('/room1/0');
+			});
+		$('#room2_on').click(function() {
+			console.log('Room 2 On!');
+			$.post('/room2/1');
+			});
+		$('#room2_off').click(function() {
+			console.log('Room 2 Off!');
+			$.post('/room2/0');
+			});
+		$('#loo_on').click(function() {
+			console.log('Loo On!');
+			$.post('/loo/1');
+			});
+		$('#loo_off').click(function() {
+			console.log('Loo Off!');
+			$.post('/loo/0');
+			});
+		$('#garage_on').click(function() {
+			console.log('Garage On!');
+			$.post('/garage/1');
+			});
+		$('#garage_off').click(function() {
+			console.log('Garage Off!');
+			$.post('/garage/0');
+			});
+		$('#tank_on').click(function() {
+			console.log('Tank On!');
+			$.post('/tank/1');
+			});
+		$('#tank_off').click(function() {
+			console.log('Tank Off!');
+			$.post('/tank/0');
+			});
+		$('#ac_on').click(function() {
+			console.log('AC On!');
+			$.post('/ac/1');
+			});
+		$('#ac_off').click(function() {
+			console.log('AC Off!');
+			$.post('/ac/0');
+			});
+		$('#all_on').click(function() {
+			console.log('Emergency On!');
+			$.post('/all/1');
+			});
+		$('#all_off').click(function() {
+			console.log('Emergency Off!');
+			$.post('/all/0');
+			});
+		$('#reset').click(function() {
+			console.log('System Reset!');
+			$.post('/reset/1');
+			});
+		$('#alertin').click(function() {
+			console.log('Alert Activated!');
+			$.post('/alertin/1');
+			});
+		$('#hallA_on').click(function() {
+			console.log('HallA On!');
+			$.post('/hallA/1');
+			});
+		$('#hallA_off').click(function() {
+			console.log('HallA Off!');
+			$.post('/hallA/0');
+			});
+		});</script>
+	
+</body>
+</html>
+  
+
